@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payment Syahri</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
+
+    .welcome {
+      background: linear-gradient(135deg, #1dd1a1, #0984e3);
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .welcome h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .btn-start {
+      margin-top: 20px;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      border: none;
+      padding: 12px 25px;
+      color: white;
+      font-size: 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-start:hover {
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+    }
+
+    .container {
+      margin-top: 30px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+<div style="
+  background: linear-gradient(135deg, #0d0d0d, #111111);
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.1);
+">
+  <!-- ICON DOMPET -->
+  <div style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  ">
+    <div style="
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(to right, #00e0ff, #0066ff);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    ">
+      <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" width="24" height="24" alt="Wallet Icon">
+    </div>
+    <h1 style="
+      font-size: 32px;
+      margin: 0;
+      color: #00e0ff;
+      text-shadow: 0 0 10px #0077ff;
+    ">Payment</h1>
+  </div>
+
+    .card img.icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .card h2 {
+      font-size: 24px;
+      margin: 10px 0 5px;
+      color: #fff;
+    }
+
+    .card p {
+      margin: 5px 0 15px;
+      color: #cbd5e1;
+    }
+
+    .code-box {
+      background: #0f172a;
+      padding: 10px;
+      border-radius: 10px;
+      font-family: monospace;
+      color: #00ffae;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .btn-copy, .btn-download {
+      background: linear-gradient(to right, #00ffcc, #0099ff);
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-copy:hover, .btn-download:hover {
+      opacity: 0.9;
+    }
+
+    .instructions {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 500px;
+      margin: 50px auto;
+      text-align: left;
+    }
+
+    .instructions h3 {
+      color: #00ffae;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .instructions ol {
+      padding-left: 20px;
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome" id="welcomeScreen">
+    <h1>Selamat Datang</h1>
+    <p>Klik untuk melanjutkan pembayaran</p>
+    <button class="btn-start" onclick="showPayment()">➤ lanjutkan</button>
+  </div>
+
+  <div id="paymentContent" class="hidden">
+    <div class="container">
+
+      <!-- DANA -->
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Logo_dana_blue.svg" class="icon" alt="DANA">
+        <h2>DANA</h2>
+        <p>Bayar dengan DANA</p>
+        <div class="code-box" id="danaNumber">0882-1052-0837</div>
+        <button class="btn-copy" onclick="copyText('danaNumber')">Copy</button>
+      </div>
+
+      <!-- GOPAY -->
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Gopay_logo.svg/1024px-Gopay_logo.svg.png" class="icon" alt="GOPAY">
+        <h2>GOPAY</h2>
+        <p>Bayar dengan GOPAY</p>
+        <div class="code-box" id="gopayNumber">Tidak Tersedia ❌</div>
+        <button class="btn-copy" onclick="copyText('gopayNumber')">Copy</button>
+      </div>
+
+      <!-- QRIS -->
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/QRIS_logo.svg" class="icon" alt="QRIS">
+        <img src="https://files.catbox.moe/iune2e.jpg" alt="QRIS" width="200" style="margin-bottom: 15px; border-radius: 12px;">
+        <br>
+        <a href="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bayarQris" download="qris.png">
+          <button class="btn-download">Download</button>
+        </a>
+      </div>
+
+      <!-- Tata Cara -->
+      <div class="instructions">
+        <h3>📌 Tata Cara Transfer E-Wallet</h3>
+        <ol>
+          <li>Buka aplikasi DANA atau GoPay.</li>
+          <li>Pilih menu "Kirim Uang" atau "Bayar".</li>          <li>Masukkan nomor tujuan sesuai metode di atas.</li>
+          <li>Masukkan jumlah uang yang ingin dikirim.</li>
+          <li>Konfirmasi pembayaran dan pastikan nama penerima benar.</li>
+          <li>Setelah sukses, simpan bukti transfer jika perlu.</li>
+        </ol>
+      </div>
+      <div class="instructions">
+        <h3>📌 Tata Cara Transfer Qris</h3>
+        <ol>
+          <li>Buka Aplikasi Yang Anda Gunakan Untuk Transfer.</li>
+          <li>Pilih Tombol Scan.</li>
+          <li>Pikih Qris Yang Ingin Anda Transfer.</li>
+          <li>Masukkan Jumlah Uang Yang Ingin Di Transfer.</li>
+          <li>Konfirmasi Permbayaran Dan Pastikan Nama Pengguna Benar.</li>
+          <li>Setelah Sukses,Simpan Bukti Transfer Jika Perlu.</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor berhasil disalin!");
+      });
+    }
+
+    function showPayment() {
+      document.getElementById("welcomeScreen").style.display = "none";
+      document.getElementById("paymentContent").classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
